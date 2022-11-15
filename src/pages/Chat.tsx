@@ -146,6 +146,7 @@ export const Chat = () => {
             if (evt.key === 'Enter' && evt.ctrlKey) addChat();
           }}
         />
+        <button onClick={addChat}>Send</button>
       </div>
     </div>
   );
