@@ -95,7 +95,7 @@ export const Chat = () => {
       transports: ['websocket'],
     });
     sock.on('connect', () => {
-      console.log('session.Connect....', socketUrl, socket?.id);
+      console.log('session.Connect....', socketUrl);
     });
 
     console.log('+++++++++++++++++++++++++++++++++++++++++++++++++++');
