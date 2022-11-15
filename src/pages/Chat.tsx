@@ -3,6 +3,8 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import axios from 'axios';
 import io, { Socket } from 'socket.io-client';
 
+const { VITE_HOST } = import.meta.env;
+
 interface IBookChat {
   id: number;
   book: number;
@@ -21,9 +23,11 @@ const DefaultMsg = {
   msg: '',
 };
 
+// console.log('****************>>>', process.env);
+
 const xapi = axios.create({
   // baseURL: `/api/bnmwww/0.1/`,
-  baseURL: `http://localhost:4001/api/bnmwww/0.1/`,
+  baseURL: `${VITE_HOST}/api/bnmwww/0.1/`,
   withCredentials: true,
 });
 
@@ -89,7 +93,7 @@ export const Chat = () => {
       return;
     }
 
-    const socketUrl = `http://localhost:4001`;
+    const socketUrl = VITE_HOST;
     console.log('session.socketUrl>>>>>', socketUrl);
     const sock = io(socketUrl, {
       transports: ['websocket'],
